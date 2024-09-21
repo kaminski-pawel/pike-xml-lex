@@ -62,7 +62,7 @@ def run(lexer: Lexer, start: t.Callable):
 
 
 def emit_token(l: Lexer, token: str) -> t.Callable:
-    print(">> emit_token")
+    print(f">> emit_token, token={token}")
     l.tokens.append(token)
     l.start = l.pos
 
@@ -72,6 +72,7 @@ def lex_xml(l: Lexer) -> t.Callable:
     while True:
         ignore_whitespace(l)
         ch = peek_char(l)
+        print("75ch", ch)
         if ch is CHAR_EOF:
             emit_token(l, CHAR_EOF)
             return lex_end
@@ -91,6 +92,7 @@ def lex_text(l: Lexer) -> t.Callable:
         ch = peek_char(l)
     token = l.input[l.start : l.pos]
     emit_token(l, token)
+    print("l.tokens", l.tokens)
     raise NotImplementedError
     return lex_xml
 
@@ -112,6 +114,7 @@ def lex_inside_tag(l: Lexer) -> t.Callable:
         return error(l, "Found unclosed tag")
     l.pos = pos
     emit_token(l, l.input[l.start : l.pos])
+    ch = next_char(l)
     # handle attributes
     # handle closing a tag
     # TODO: implement attributes
@@ -122,7 +125,7 @@ def lex_inside_tag(l: Lexer) -> t.Callable:
     # elif ch == "=":
     #     return lex_inside_tag
     if ch == ">":
-        ignore(l)
+        emit_token(l, ">")
         return lex_xml
     elif ch == "/":
         return lex_xml
