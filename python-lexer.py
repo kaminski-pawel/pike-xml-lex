@@ -57,7 +57,11 @@ def run(lexer: Lexer, start: t.Callable):
     print(">> run")
     state = start
     while state.__name__ != lex_end.__name__:
-        state = state(lexer)
+        try:
+            state = state(lexer)
+        except:
+            print("lexer", lexer)
+            raise
     print("run ended")
 
 
@@ -72,16 +76,24 @@ def lex_xml(l: Lexer) -> t.Callable:
     while True:
         ignore_whitespace(l)
         ch = peek_char(l)
-        print("75ch", ch)
+        # TODO: in go here check EOF char
         if ch is CHAR_EOF:
             emit_token(l, CHAR_EOF)
             return lex_end
         elif ch == "<":
+            # TODO: improve peek next next char
+            if len(l.input) > l.pos and l.input[l.pos + 1] == "/":
+                l.pos += len("</")
+                emit_token(l, "</")
+                return lex_inside_end_tag
             l.pos += len("<")
             emit_token(l, "<")
-            return lex_begin_tag
-        else:
+            return lex_inside_start_tag
+        elif ch.isalnum():
             return lex_text
+        else:
+            raise Exception(f"Found unexpected character {ch}.")
+            # error(l, f"Found unexpected character {ch}.")
 
 
 def lex_text(l: Lexer) -> t.Callable:
@@ -92,43 +104,28 @@ def lex_text(l: Lexer) -> t.Callable:
         ch = peek_char(l)
     token = l.input[l.start : l.pos]
     emit_token(l, token)
-    print("l.tokens", l.tokens)
-    raise NotImplementedError
     return lex_xml
 
 
-def lex_begin_tag(l: Lexer) -> t.Callable:
-    print(">> lex_begin_tag")
+def lex_inside_start_tag(l: Lexer) -> t.Callable:
+    print(">> lex_inside_start_tag")
     ch = peek_char(l)
-    if ch == "/":
-        print("CLOSE TAG")
-    else:
-        return lex_inside_tag
+    while ch != ">":
+        next_char(l)
+        ch = peek_char(l)
+    token = l.input[l.start : l.pos]
+    emit_token(l, token)
+    closing_brachet = next_char(l)  # >
+    emit_token(l, closing_brachet)
+    return lex_xml
 
 
-def lex_inside_tag(l: Lexer) -> t.Callable:
-    print(">> lex_inside_tag")
-    ch = next_char(l)
-    pos = l.input.find(">", l.pos)  # TODO: handle "/"
-    if pos == -1:
-        return error(l, "Found unclosed tag")
-    l.pos = pos
-    emit_token(l, l.input[l.start : l.pos])
-    ch = next_char(l)
-    # handle attributes
-    # handle closing a tag
-    # TODO: implement attributes
-    # if attrib_indent:
-    #     return lex_attrib_indent
-    # elif attrib_string:
-    #     return lex_attrib_string
-    # elif ch == "=":
-    #     return lex_inside_tag
-    if ch == ">":
-        emit_token(l, ">")
-        return lex_xml
-    elif ch == "/":
-        return lex_xml
+def lex_inside_end_tag(l: Lexer) -> t.Callable:
+    # TODO: similar to inside_start_tag but without attribs, namespaces, etc
+    return lex_inside_start_tag(l)
+
+
+def lex_end_tag(l: Lexer) -> t.Callable:
     return lex_xml
 
 
@@ -145,6 +142,7 @@ def ignore_whitespace(l: Lexer):
 
 
 def backup_char(l: Lexer) -> str:
+    # TODO: is this necessary?
     print(">> backup_char")
     l.pos -= 1
     return l.input[l.pos]
