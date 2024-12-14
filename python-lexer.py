@@ -7,7 +7,7 @@ XML_EXAMPLE = """\
 <article>
     <author>John</author>
     <id>12</id>
-    <title>My title</title>
+    <title id=123 long="this is a sentence" value="456">My title</title>
     <sec><p>Paragraph 1</p>
         <p>Paragraph 2</p>
     </sec>
@@ -113,16 +113,57 @@ def lex_inside_start_tag(l: Lexer) -> t.Callable:
     while ch != ">":
         next_char(l)
         ch = peek_char(l)
+        if ch == '"':
+            return lex_attrib_string
     token = l.input[l.start : l.pos]
     emit_token(l, token)
     closing_brachet = next_char(l)  # >
     emit_token(l, closing_brachet)
     return lex_xml
 
+def lex_attrib_name(l: Lexer) -> t.Callable:
+    print(">> lex_attrib_name")
+    ch = peek_char(l)
+    while ch != "=":
+        next_char(l)
+        ch = peek_char(l)
+        ...
+    return
+
+def lex_attrib_value(l: Lexer) -> t.Callable:
+    print(">> lex_attrib_value")
+    return
+
+def lex_attrib_string(l: Lexer) -> t.Callable:
+    ch = peek_char(l)
+    while ch != '"':
+        next_char(l)
+        ch = peek_char(l)
+    # next_char(l)
+    token = l.input[l.start : l.pos]
+    emit_token(l, token)
+    return lex_inside_start_tag
+
+    # if scan_string(l):
+    #     token = l.input[l.start : l.pos]
+    #     emit_token(l, token)  # String
+    #     return lex_inside_start_tag
+    # else:
+    #     raise Exception("Not a valid quoted string")
+    # return
+
 
 def lex_inside_end_tag(l: Lexer) -> t.Callable:
     # TODO: similar to inside_start_tag but without attribs, namespaces, etc
-    return lex_inside_start_tag(l)
+    ch = peek_char(l)
+    while ch != ">":
+        next_char(l)
+        ch = peek_char(l)
+    token = l.input[l.start : l.pos]
+    emit_token(l, token)
+    closing_brachet = next_char(l)  # >
+    emit_token(l, closing_brachet)
+    return lex_xml
 
 
 def lex_end_tag(l: Lexer) -> t.Callable:
