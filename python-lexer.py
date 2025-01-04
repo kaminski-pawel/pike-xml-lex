@@ -113,25 +113,34 @@ def lex_inside_start_tag(l: Lexer) -> t.Callable:
     while ch != ">":
         next_char(l)
         ch = peek_char(l)
-        if ch == '"':
-            return lex_attrib_string
+        if ch == ' ':
+            token = l.input[l.start : l.pos]
+            emit_token(l, token)
+            ignore_whitespace(l)
+            return lex_attrib_name
     token = l.input[l.start : l.pos]
     emit_token(l, token)
     closing_brachet = next_char(l)  # >
     emit_token(l, closing_brachet)
     return lex_xml
 
+
 def lex_attrib_name(l: Lexer) -> t.Callable:
     print(">> lex_attrib_name")
     ch = peek_char(l)
+    token = l.input[l.start : l.pos]
     while ch != "=":
         next_char(l)
         ch = peek_char(l)
-        ...
-    return
+    token = l.input[l.start : l.pos]
+    emit_token(l, token)
+    eq_char = next_char(l)
+    emit_token(l, eq_char)
+    return lex_attrib_value
 
 def lex_attrib_value(l: Lexer) -> t.Callable:
     print(">> lex_attrib_value")
+    print("l.tokens", l.token)
     return
 
 def lex_attrib_string(l: Lexer) -> t.Callable:
