@@ -7,7 +7,7 @@ XML_EXAMPLE = """\
 <article>
     <author>John</author>
     <id>12</id>
-    <title id=123 long="this is a sentence" value="456">My title</title>
+    <title id="123" long="this is a sentence"  value="456">My title</title>
     <sec><p>Paragraph 1</p>
         <p>Paragraph 2</p>
     </sec>
@@ -139,9 +139,29 @@ def lex_attrib_name(l: Lexer) -> t.Callable:
     return lex_attrib_value
 
 def lex_attrib_value(l: Lexer) -> t.Callable:
+    # this assumes every attrib value is between '"' quotation mark
     print(">> lex_attrib_value")
-    print("l.tokens", l.token)
-    return
+    print("l.tokens", l.tokens)
+    # ignore(l)
+    next_char(l)
+    ch = peek_char(l)
+    print("ch", ch)
+    while ch != '"':
+        next_char(l)
+        ch = peek_char(l)
+    next_char(l)
+    ch = peek_char(l)
+    token = l.input[l.start : l.pos]
+    emit_token(l, token)
+    print("token", token) # why is this token empty?
+    ignore_whitespace(l)
+    ch = peek_char(l)
+    print(".......ch", ch)
+    if ch == ">":
+        next_char(l)
+        emit_token(l, ">")
+        return lex_xml
+    return lex_attrib_name
 
 def lex_attrib_string(l: Lexer) -> t.Callable:
     ch = peek_char(l)
