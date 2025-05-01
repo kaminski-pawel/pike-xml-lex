@@ -8,6 +8,9 @@ XML_EXAMPLE = """\
     <author>John</author>
     <id>12</id>
     <title id="123" long="this is a sentence"  value="456">My title</title>
+    <!-- Some - -- comment -->
+    <!-- No whitespace-->
+    <!-- -->
     <sec><p>Paragraph 1</p>
         <p>Paragraph 2</p>
     </sec>
@@ -86,6 +89,8 @@ def lex_xml(l: Lexer) -> t.Callable:
                 l.pos += len("</")
                 emit_token(l, "</")
                 return lex_inside_end_tag
+            elif len(l.input) > l.pos and l.input[l.pos + 1] == "!":
+                return lex_comment
             l.pos += len("<")
             emit_token(l, "<")
             return lex_inside_start_tag
@@ -141,11 +146,9 @@ def lex_attrib_name(l: Lexer) -> t.Callable:
 def lex_attrib_value(l: Lexer) -> t.Callable:
     # this assumes every attrib value is between '"' quotation mark
     print(">> lex_attrib_value")
-    print("l.tokens", l.tokens)
     # ignore(l)
     next_char(l)
     ch = peek_char(l)
-    print("ch", ch)
     while ch != '"':
         next_char(l)
         ch = peek_char(l)
@@ -153,10 +156,8 @@ def lex_attrib_value(l: Lexer) -> t.Callable:
     ch = peek_char(l)
     token = l.input[l.start : l.pos]
     emit_token(l, token)
-    print("token", token) # why is this token empty?
     ignore_whitespace(l)
     ch = peek_char(l)
-    print(".......ch", ch)
     if ch == ">":
         next_char(l)
         emit_token(l, ">")
@@ -192,6 +193,30 @@ def lex_inside_end_tag(l: Lexer) -> t.Callable:
     emit_token(l, token)
     closing_brachet = next_char(l)  # >
     emit_token(l, closing_brachet)
+    return lex_xml
+
+
+def lex_comment(l: Lexer) -> t.Callable:
+    ch = peek_char(l)
+    while ch in ["<", "!", "-"]:
+        next_char(l)
+        ch = peek_char(l)
+    token = l.input[l.start:l.pos]
+    emit_token(l, token) # <!--
+    ignore_whitespace(l)
+    end_tag_stack = []
+    while ch != ">":
+        ch = next_char(l)
+        if ch in ["-", ">"]:
+            end_tag_stack.append(ch)
+        else:
+            end_tag_stack = []
+    comment_end = l.pos
+    l.pos = l.pos - len(end_tag_stack) 
+    comment = l.input[l.start:l.pos]
+    emit_token(l, comment)
+    l.pos = comment_end
+    emit_token(l, "".join(end_tag_stack)) # -->
     return lex_xml
 
 
