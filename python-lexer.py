@@ -298,4 +298,10 @@ def error(l: Lexer, msg: str) -> t.Callable:
 
 
 if __name__ == "__main__":
-    lex(XML_EXAMPLE, lex_xml)
+    for fp in pathlib.Path("data").glob("**/*.xml"):
+        print(">>>", fp)
+        with open(fp, "r") as f:
+            lex(f.read(), lex_xml)
+
+    # lex(XML_EXAMPLE, lex_xml)
+

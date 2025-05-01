@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<n1:JednostkaMikro
+  xmlns:n1="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaMikroWZlotych"
+  xmlns:d1p1="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:n2="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaMikroStruktury"
+  xmlns:n3="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/DefinicjeTypySprawozdaniaFinansowe/"
+  xmlns:n4="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/"
+  xmlns:n5="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaMalaStruktury"
+  xmlns:n6="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaInnaStruktury"
+  d1p1:schemaLocation="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaMikroWZlotych https://www.mf.gov.pl/documents/764034/6464789/JednostkaMikroWZlotych%281%29_v1-0.xsd">
+  <n1:Naglowek>
+    <n3:OkresOd>2018-01-01</n3:OkresOd>
+    <n3:OkresDo>2018-12-31</n3:OkresDo>
+    <n3:DataSporzadzenia>2019-03-31</n3:DataSporzadzenia>
+    <n2:KodSprawozdania kodSystemowy="SFJMIZ (1)" wersjaSchemy="1-0E">SprFinJednostkaMikroWZlotych</n2:KodSprawozdania>
+    <n2:WariantSprawozdania>1</n2:WariantSprawozdania>
+  </n1:Naglowek>
+  <n1:InformacjeOgolneJednostkaMikro>
+    <n1:P_1>
+      <n1:P_1A>
+        <n3:NazwaFirmy>S.P. RECORDS SP. ZO.O.</n3:NazwaFirmy>
+        <n3:Siedziba>
+          <n3:Wojewodztwo>mazowieckie</n3:Wojewodztwo>
+          <n3:Powiat>Warszawa</n3:Powiat>
+          <n3:Gmina>Warszawa</n3:Gmina>
+          <n3:Miejscowosc>Warszawa</n3:Miejscowosc>
+        </n3:Siedziba>
+      </n1:P_1A>
+      <n1:P_1B>
+        <n3:Adres>
+          <n4:KodKraju>PL</n4:KodKraju>
+          <n4:Wojewodztwo>mazowieckie</n4:Wojewodztwo>
+          <n4:Powiat>Warszawa</n4:Powiat>
+          <n4:Gmina>Warszawa</n4:Gmina>
+          <n4:Ulica>RYMANOWSKA</n4:Ulica>
+          <n4:NrDomu>4</n4:NrDomu>
+          <n4:Miejscowosc>Warszawa</n4:Miejscowosc>
+          <n4:KodPocztowy>02-916</n4:KodPocztowy>
+          <n4:Poczta>Warszawa</n4:Poczta>
+        </n3:Adres>
+      </n1:P_1B>
+      <n1:P_1C>
+        <n3:KRS>0000062159</n3:KRS>
+      </n1:P_1C>
+    </n1:P_1>
+    <n1:P_3>
+      <n3:DataOd>2018-01-01</n3:DataOd>
+      <n3:DataDo>2018-12-31</n3:DataDo>
+    </n1:P_3>
+    <n1:P_4>Sprawozdanie finansowe zostało przygotowane zgodnie z wymogami Ustawy z dnia 29 września 1994 roku o rachunkowości obowiązującymi jednostki mikro kontynuujące działalność, według załącznika numer 4 z zastosowaniem trzech uproszczeń w polityce
+      rachunkowości: kwalifikowania umów leasingu według zasad określonych w przepisach podatkowych i niestosowania art.3 ust.4 i 5 ustawy o rachunkowości, co wynika z art.3 ust.6 znowelizowanej ustawy o rachunkowości. niestosowania Rozporządzenia Ministra
+      Finansów z 12.XII.2001r. w sprawie szczególnych zasad uznawania, metody wyceny, zakresu ujawniania i sposobu prezentacji instrumentów finansowych (Dz.U.nr 149 poz. 1674 ze zm.), co wynika z art.28b ust.1 znowelizowanej ustawy o rachunkowości.
+      odstąpienie od ustalania aktywów i rezerw z tytułu odroczonego podatku dochodowego, co wynika z art.37 ust.10 znowelizowanej ustawy o rachunkowości.</n1:P_4>
+    <n1:P_5>
+      <n1:P_5A>true</n1:P_5A>
+      <n1:P_5B>true</n1:P_5B>
+    </n1:P_5>
+    <n1:P_6>
+      <n1:P_6A>Sprawozdanie finansowe zostało przygotowane zgodnie z wymogami Ustawy z dnia 29 września 1994 roku o rachunkowości obowiązującymi jednostki mikro kontynuujące działalność, według załącznika numer 4 z zastosowaniem trzech uproszczeń w
+        polityce rachunkowości: kwalifikowania umów leasingu według zasad określonych w przepisach podatkowych i niestosowania art.3 ust.4 i 5 ustawy o rachunkowości, co wynika z art.3 ust.6 znowelizowanej ustawy o rachunkowości. niestosowania Rozporządzenia
+        Ministra Finansów z 12.XII.2001r. w sprawie szczególnych zasad uznawania, metody wyceny, zakresu ujawniania i sposobu prezentacji instrumentów finansowych (Dz.U.nr 149 poz. 1674 ze zm.), co wynika z art.28b ust.1 znowelizowanej ustawy o
+        rachunkowości. odstąpienie od ustalania aktywów i rezerw z tytułu odroczonego podatku dochodowego, co wynika z art.37 ust.10 znowelizowanej ustawy o rachunkowości. Spółka sporządza rachunek zysków i strat w układzie porównawczym.</n1:P_6A>
+      <n1:P_6B>Wartości niematerialne i prawne oraz śtodki trwałe wycenia się według cen nabycia lub kosztów wytworzenia, pomniejszonych o skumulowane odpisy umorzeniowe. Towary ewidencjonuje się wg metodyFIFO (pierwsze przyło pierwsze wyszło). Należności
+        wycenia się w wartości nominalnej, z zachowaniem zasady ostrożnej wyceny (po pomniejszeniu o odpisy aktualizujące), Środki pieniężne wykazuje się w wartości nominalnej.Kapitały (fundusze) własne ujmuje się w księgach rachunkowych według wartości
+        nominalnej udziałów określonej w umowie Spółki i wpisanej w rejestrze sądowym.</n1:P_6B>
+      <n1:P_6C>Przychody ze sprzedaży obejmują niewątpliwie należne lub uzyskane kwoty netto ze sprzedaży tj. pomniejszone o należny podatek od towarów i usług (VAT) ujmowane w okresach, których dotyczą. Koszty Spółka prowadzi koszty w układzie rodzajowym.
+        Koszt sprzedanych towarów obejmuje koszty bezpośrednio z nimi związane oraz uzasadnioną część kosztów pośrednich</n1:P_6C>
+    </n1:P_6>
+  </n1:InformacjeOgolneJednostkaMikro>
+  <n1:BilansJednostkaMikro>
+    <n2:Aktywa>
+      <n3:KwotaA>1159800.42</n3:KwotaA>
+      <n3:KwotaB>1170579.79</n3:KwotaB>
+      <n2:Aktywa_A>
+        <n3:KwotaA>12438.17</n3:KwotaA>
+        <n3:KwotaB>31709.94</n3:KwotaB>
+      </n2:Aktywa_A>
+      <n2:Aktywa_B>
+        <n3:KwotaA>1147362.25</n3:KwotaA>
+        <n3:KwotaB>1138869.85</n3:KwotaB>
+        <n2:Aktywa_B_1>
+          <n3:KwotaA>681587.16</n3:KwotaA>
+          <n3:KwotaB>660111.28</n3:KwotaB>
+        </n2:Aktywa_B_1>
+        <n2:Aktywa_B_2>
+          <n3:KwotaA>462020.66</n3:KwotaA>
+          <n3:KwotaB>461562.13</n3:KwotaB>
+        </n2:Aktywa_B_2>
+      </n2:Aktywa_B>
+    </n2:Aktywa>
+    <n2:Pasywa>
+      <n3:KwotaA>1159800.42</n3:KwotaA>
+      <n3:KwotaB>1170579.79</n3:KwotaB>
+      <n2:Pasywa_A>
+        <n3:KwotaA>306541.00</n3:KwotaA>
+        <n3:KwotaB>90215.04</n3:KwotaB>
+        <n2:Pasywa_A_1>
+          <n3:KwotaA>50000.00</n3:KwotaA>
+          <n3:KwotaB>50000.00</n3:KwotaB>
+        </n2:Pasywa_A_1>
+      </n2:Pasywa_A>
+      <n2:Pasywa_B>
+        <n3:KwotaA>853259.42</n3:KwotaA>
+        <n3:KwotaB>1080364.75</n3:KwotaB>
+        <n2:Pasywa_B_2>
+          <n3:KwotaA>229487.27</n3:KwotaA>
+          <n3:KwotaB>204455.29</n3:KwotaB>
+        </n2:Pasywa_B_2>
+      </n2:Pasywa_B>
+    </n2:Pasywa>
+  </n1:BilansJednostkaMikro>
+  <n1:RZiSJednostkaMikro>
+    <n2:A>
+      <n3:KwotaA>1766740.40</n3:KwotaA>
+      <n3:KwotaB>2617612.66</n3:KwotaB>
+    </n2:A>
+    <n2:B>
+      <n3:KwotaA>1768504.02</n3:KwotaA>
+      <n3:KwotaB>2520985.06</n3:KwotaB>
+      <n2:B_I>
+        <n3:KwotaA>24289.27</n3:KwotaA>
+        <n3:KwotaB>21920.10</n3:KwotaB>
+      </n2:B_I>
+      <n2:B_II>
+        <n3:KwotaA>77315.30</n3:KwotaA>
+        <n3:KwotaB>81871.51</n3:KwotaB>
+      </n2:B_II>
+      <n2:B_III>
+        <n3:KwotaA>515774.14</n3:KwotaA>
+        <n3:KwotaB>917252.58</n3:KwotaB>
+      </n2:B_III>
+      <n2:B_IV>
+        <n3:KwotaA>1151125.31</n3:KwotaA>
+        <n3:KwotaB>1499940.87</n3:KwotaB>
+      </n2:B_IV>
+    </n2:B>
+    <n2:C>
+      <n3:KwotaA>190025.19</n3:KwotaA>
+      <n3:KwotaB>98588.65</n3:KwotaB>
+    </n2:C>
+    <n2:D>
+      <n3:KwotaA>15947.13</n3:KwotaA>
+      <n3:KwotaB>133595.56</n3:KwotaB>
+    </n2:D>
+    <n2:E>
+      <n3:KwotaA>6204.00</n3:KwotaA>
+      <n3:KwotaB>0.00</n3:KwotaB>
+    </n2:E>
+    <n2:F>
+      <n3:KwotaA>166110.44</n3:KwotaA>
+      <n3:KwotaB>61620.69</n3:KwotaB>
+    </n2:F>
+  </n1:RZiSJednostkaMikro>
+  <n1:InformacjeUzupelniajaceDoBilansuJednostkaMikro>
+    <n1:InformacjeUzupelniajaceDoBilansu>
+      <n3:Opis>informacje dodatkowe</n3:Opis>
+      <n3:Plik>
+        <n3:Nazwa>informacjarecords.doc</n3:Nazwa>
+        <n3:Zawartosc>abc</n3:Zawartosc>
+      </n3:Plik>
+    </n1:InformacjeUzupelniajaceDoBilansu>
+  </n1:InformacjeUzupelniajaceDoBilansuJednostkaMikro>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-1b66fc2c-56b1-4951-b807-6e0122cbd0fc">
+    <ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <ds:Reference URI="">
+        <ds:Transforms>
+          <ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+            <ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath>
+          </ds:Transform>
+        </ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue>5x2VwieMYYtaMnwf7djnHS9NpXhgtCQI38hyw6+hdEc=</ds:DigestValue>
+      </ds:Reference>
+      <ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProps-1b66fc2c-56b1-4951-b807-6e0122cbd0fc">
+        <ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue>q8fesEi5BNBohJXROIIn23pTNil1Wuj6hIlJEfxU+TU=</ds:DigestValue>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue Id="SignatureValue-1b66fc2c-56b1-4951-b807-6e0122cbd0fc">amcARUvUxDr886uqBrUQAey7ewk7J5IaAIzqrBHfOqonDNXx7Agtx2/FboGDacQbdx54BESAr78A7PHkOFWg2T02vxAFzh8QWT0blay9GoGQsXTzsS1d+5H9+00Jn9EY1fT5Uqb1osb8/Z6Q5N0ATsI/tChJ/z30zWgcSKT+BsqofE9AoGDV/2ftVBYfuW5rJ/lACFhoasGeWR2bVif5xeSplDNc8CcI1tNozO5ImriRn0VUxRXxT7+rltquThcaatcMbjq4JAmbNYT1k31w0xVAkVf7HpuK0c912PkU0kjxtLxAfetwcLiXqb5TpDuIyJPy10b3MK8oa+eTUV7Gvw==</ds:SignatureValue>
+    <ds:KeyInfo>
+      <ds:X509Data>
+        <ds:X509Certificate>asd</ds:X509Certificate>
+      </ds:X509Data>
+    </ds:KeyInfo>
+    <ds:Object Id="QualifyingInfos-1b66fc2c-56b1-4951-b807-6e0122cbd0fc">
+      <xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProps-1b66fc2c-56b1-4951-b807-6e0122cbd0fc" Target="#Signature-1b66fc2c-56b1-4951-b807-6e0122cbd0fc">
+        <xades:SignedProperties Id="SignedProps-1b66fc2c-56b1-4951-b807-6e0122cbd0fc">
+          <xades:SignedSignatureProperties>
+            <xades:SigningTime>2019-06-17T09:39:02.011+02:00</xades:SigningTime>
+            <xades:SigningCertificate>
+              <xades:Cert>
+                <xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                  <ds:DigestValue>fX3PB5Lm5bJXwvzUwyejJRW2FFAw/k56Tb6OO50a0xQ=</ds:DigestValue>
+                </xades:CertDigest>
+                <xades:IssuerSerial>
+                  <ds:X509IssuerName>CN=Certum Digital Identification CA SHA2,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL</ds:X509IssuerName>
+                  <ds:X509SerialNumber>62293138293774704981248280462520082449</ds:X509SerialNumber>
+                </xades:IssuerSerial>
+              </xades:Cert>
+            </xades:SigningCertificate>
+            <xades:SignaturePolicyIdentifier><xades:SignaturePolicyImplied/></xades:SignaturePolicyIdentifier>
+            <xades:SignerRole>
+              <xades:ClaimedRoles>
+                <xades:ClaimedRole>
+                  <ppZP:PodpisZP xmlns:os="http://crd.gov.pl/xml/schematy/osoba/2009/03/06/" xmlns:ppZP="http://crd.gov.pl/xml/schematy/ppzp/">
+                    <ppZP:DaneZP>
+                      <ppZP:DaneZPOsobyFizycznej>
+                        <os:Nazwisko rodzajCzlonu="pierwszy">MATYSIAK</os:Nazwisko>
+                        <os:Imie>WIESŁAWA</os:Imie>
+                        <os:PESEL>65082102066</os:PESEL>
+                        <ppZP:IdZaufanegoProfilu>6263108</ppZP:IdZaufanegoProfilu>
+                        <ppZP:IdKontaUzytkownikaEpuap>Milaczkowo</ppZP:IdKontaUzytkownikaEpuap>
+                      </ppZP:DaneZPOsobyFizycznej>
+                    </ppZP:DaneZP>
+                    <ppZP:DanePodpisu>
+                      <ppZP:IdKontaUzytkownikaEpuap>Milaczkowo</ppZP:IdKontaUzytkownikaEpuap>
+                      <ppZP:IdPolitykiAutoryzacji>105</ppZP:IdPolitykiAutoryzacji>
+                    </ppZP:DanePodpisu>
+                  </ppZP:PodpisZP>
+                </xades:ClaimedRole>
+              </xades:ClaimedRoles>
+            </xades:SignerRole>
+          </xades:SignedSignatureProperties>
+        </xades:SignedProperties>
+      </xades:QualifyingProperties>
+    </ds:Object>
+  </ds:Signature>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-de3aa75e-fadd-4dd1-bf82-3f8410b763bc">
+    <ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <ds:Reference URI="">
+        <ds:Transforms>
+          <ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+            <ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath>
+          </ds:Transform>
+        </ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue>5x2VwieMYYtaMnwf7djnHS9NpXhgtCQI38hyw6+hdEc=</ds:DigestValue>
+      </ds:Reference>
+      <ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProps-de3aa75e-fadd-4dd1-bf82-3f8410b763bc">
+        <ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue>UisGLwfN1sDqBxy35CyWi+PZbGIoS7wqLe9EJTebjR4=</ds:DigestValue>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue Id="SignatureValue-de3aa75e-fadd-4dd1-bf82-3f8410b763bc">fr/tOc3jSjJGQFmm2Ba5vjVsdc/rohXdFIFKfFNgSnWwz4jQQk58VOO0OJkJjQ7b5owQH+UrypaN9Yv9YeJfBzXTvYuuMuEnGo+HZoc8PPOFRlFnJRM4CzM8NRafyOjb5FJwMhjZuJIi25hMsgJvqbYtY3CMyGJXouMB1TPIFD8tM1aaGtfmGLglBpwpmkkrfL7Pg97NE9Syjcv6qW1zH6ZHo6vblRfg51bMIBe+nyZiceqXNSkObpg0/1DQgwlJ44bODubCjxIgjgKf2u9G/cwOz/yK/7f/SkwJlaoKP9FyqeQtppsm1DQ+s8rK+oUoNcXLbY6bGmKQTKMa9dPgpw==</ds:SignatureValue>
+    <ds:KeyInfo>
+      <ds:X509Data>
+        <ds:X509Certificate>xzcv</ds:X509Certificate>
+      </ds:X509Data>
+    </ds:KeyInfo>
+    <ds:Object Id="QualifyingInfos-de3aa75e-fadd-4dd1-bf82-3f8410b763bc">
+      <xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProps-de3aa75e-fadd-4dd1-bf82-3f8410b763bc" Target="#Signature-de3aa75e-fadd-4dd1-bf82-3f8410b763bc">
+        <xades:SignedProperties Id="SignedProps-de3aa75e-fadd-4dd1-bf82-3f8410b763bc">
+          <xades:SignedSignatureProperties>
+            <xades:SigningTime>2019-06-17T15:29:58.575+02:00</xades:SigningTime>
+            <xades:SigningCertificate>
+              <xades:Cert>
+                <xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                  <ds:DigestValue>fX3PB5Lm5bJXwvzUwyejJRW2FFAw/k56Tb6OO50a0xQ=</ds:DigestValue>
+                </xades:CertDigest>
+                <xades:IssuerSerial>
+                  <ds:X509IssuerName>CN=Certum Digital Identification CA SHA2,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL</ds:X509IssuerName>
+                  <ds:X509SerialNumber>62293138293774704981248280462520082449</ds:X509SerialNumber>
+                </xades:IssuerSerial>
+              </xades:Cert>
+            </xades:SigningCertificate>
+            <xades:SignaturePolicyIdentifier><xades:SignaturePolicyImplied/></xades:SignaturePolicyIdentifier>
+            <xades:SignerRole>
+              <xades:ClaimedRoles>
+                <xades:ClaimedRole>
+                  <ppZP:PodpisZP xmlns:os="http://crd.gov.pl/xml/schematy/osoba/2009/03/06/" xmlns:ppZP="http://crd.gov.pl/xml/schematy/ppzp/">
+                    <ppZP:DaneZP>
+                      <ppZP:DaneZPOsobyFizycznej>
+                        <os:Nazwisko rodzajCzlonu="pierwszy">SZYMAŃSKI</os:Nazwisko>
+                        <os:Imie>ARKADIUSZ</os:Imie>
+                        <os:PESEL>77051006675</os:PESEL>
+                        <ppZP:IdZaufanegoProfilu>5103583</ppZP:IdZaufanegoProfilu>
+                        <ppZP:IdKontaUzytkownikaEpuap>ARKADIUSZSZYMANSKI770510</ppZP:IdKontaUzytkownikaEpuap>
+                      </ppZP:DaneZPOsobyFizycznej>
+                    </ppZP:DaneZP>
+                    <ppZP:DanePodpisu>
+                      <ppZP:IdKontaUzytkownikaEpuap>ARKADIUSZSZYMANSKI770510</ppZP:IdKontaUzytkownikaEpuap>
+                      <ppZP:IdPolitykiAutoryzacji>109</ppZP:IdPolitykiAutoryzacji>
+                    </ppZP:DanePodpisu>
+                  </ppZP:PodpisZP>
+                </xades:ClaimedRole>
+              </xades:ClaimedRoles>
+            </xades:SignerRole>
+          </xades:SignedSignatureProperties>
+        </xades:SignedProperties>
+      </xades:QualifyingProperties>
+    </ds:Object>
+  </ds:Signature>
+</n1:JednostkaMikro>
