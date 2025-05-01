@@ -1,4 +1,6 @@
 import dataclasses
+import enum
+import pathlib
 import typing as t
 
 CHAR_EOF = None
@@ -31,9 +33,25 @@ class Lexer:
         return f"Lexer(start={self.start}, pos={self.pos}, tokens={self.tokens})"
 
 
+class TokenType(enum.Enum):
+    ATTRIB_NAME = 1
+    ATTRIB_EQ = 2
+    ATTRIB_VALUE = 3
+    COMMENT_TAG_START = 4
+    COMMENT_VALUE = 5
+    COMMENT_TAG_END = 6
+    CHAR_EOF = 7
+    TAG_OPEN_START = 8
+    TAG_OPEN_NAME = 9
+    TAG_OPEN_END = 10
+    TAG_CLOSE_START = 11
+    TAG_CLOSE_NAME = 12
+    TAG_CLOSE_END = 13
+
+
 @dataclasses.dataclass
 class Token:
-    kind: str
+    kind: TokenType
     lexeme: str
 
 
@@ -63,12 +81,14 @@ def run(lexer: Lexer, start: t.Callable):
         try:
             state = state(lexer)
         except:
-            print("lexer", lexer)
+            # print("lexer", lexer)
+            for token in lexer.tokens:
+                print(repr(token))
             raise
     print("run ended")
 
 
-def emit_token(l: Lexer, token: str) -> t.Callable:
+def emit_token(l: Lexer, token: Token) -> t.Callable:
     print(f">> emit_token, token={token}")
     l.tokens.append(token)
     l.start = l.pos
@@ -81,18 +101,18 @@ def lex_xml(l: Lexer) -> t.Callable:
         ch = peek_char(l)
         # TODO: in go here check EOF char
         if ch is CHAR_EOF:
-            emit_token(l, CHAR_EOF)
+            emit_token(l, Token(TokenType.CHAR_EOF, CHAR_EOF))
             return lex_end
         elif ch == "<":
             # TODO: improve peek next next char
             if len(l.input) > l.pos and l.input[l.pos + 1] == "/":
                 l.pos += len("</")
-                emit_token(l, "</")
+                emit_token(l, Token(TokenType.TAG_CLOSE_START, "</"))
                 return lex_inside_end_tag
             elif len(l.input) > l.pos and l.input[l.pos + 1] == "!":
                 return lex_comment
             l.pos += len("<")
-            emit_token(l, "<")
+            emit_token(l, Token(TokenType.TAG_OPEN_START, "<"))
             return lex_inside_start_tag
         elif ch.isalnum():
             return lex_text
@@ -108,7 +128,7 @@ def lex_text(l: Lexer) -> t.Callable:
         next_char(l)
         ch = peek_char(l)
     token = l.input[l.start : l.pos]
-    emit_token(l, token)
+    emit_token(l, Token(TokenType.TAG_OPEN_NAME, token))
     return lex_xml
 
 
@@ -120,13 +140,13 @@ def lex_inside_start_tag(l: Lexer) -> t.Callable:
         ch = peek_char(l)
         if ch == ' ':
             token = l.input[l.start : l.pos]
-            emit_token(l, token)
+            emit_token(l, Token(TokenType.TAG_OPEN_NAME, token))
             ignore_whitespace(l)
             return lex_attrib_name
     token = l.input[l.start : l.pos]
-    emit_token(l, token)
+    emit_token(l, Token(TokenType.TAG_OPEN_NAME, token))
     closing_brachet = next_char(l)  # >
-    emit_token(l, closing_brachet)
+    emit_token(l, Token(TokenType.TAG_OPEN_END, closing_brachet))
     return lex_xml
 
 
@@ -138,9 +158,9 @@ def lex_attrib_name(l: Lexer) -> t.Callable:
         next_char(l)
         ch = peek_char(l)
     token = l.input[l.start : l.pos]
-    emit_token(l, token)
+    emit_token(l, Token(TokenType.ATTRIB_NAME, token))
     eq_char = next_char(l)
-    emit_token(l, eq_char)
+    emit_token(l, Token(TokenType.ATTRIB_EQ, eq_char))
     return lex_attrib_value
 
 def lex_attrib_value(l: Lexer) -> t.Callable:
@@ -155,12 +175,12 @@ def lex_attrib_value(l: Lexer) -> t.Callable:
     next_char(l)
     ch = peek_char(l)
     token = l.input[l.start : l.pos]
-    emit_token(l, token)
+    emit_token(l, Token(TokenType.ATTRIB_VALUE, token))
     ignore_whitespace(l)
     ch = peek_char(l)
     if ch == ">":
         next_char(l)
-        emit_token(l, ">")
+        emit_token(l, Token(TokenType.TAG_OPEN_END, ">"))
         return lex_xml
     return lex_attrib_name
 
@@ -171,7 +191,7 @@ def lex_attrib_string(l: Lexer) -> t.Callable:
         ch = peek_char(l)
     # next_char(l)
     token = l.input[l.start : l.pos]
-    emit_token(l, token)
+    emit_token(l, Token(TokenType.ATTRIB_VALUE, token))
     return lex_inside_start_tag
 
     # if scan_string(l):
@@ -190,9 +210,9 @@ def lex_inside_end_tag(l: Lexer) -> t.Callable:
         next_char(l)
         ch = peek_char(l)
     token = l.input[l.start : l.pos]
-    emit_token(l, token)
+    emit_token(l, Token(TokenType.TAG_CLOSE_NAME, token))
     closing_brachet = next_char(l)  # >
-    emit_token(l, closing_brachet)
+    emit_token(l, Token(TokenType.TAG_CLOSE_END, closing_brachet))
     return lex_xml
 
 
@@ -202,7 +222,7 @@ def lex_comment(l: Lexer) -> t.Callable:
         next_char(l)
         ch = peek_char(l)
     token = l.input[l.start:l.pos]
-    emit_token(l, token) # <!--
+    emit_token(l, Token(TokenType.COMMENT_TAG_START, token)) # <!--
     ignore_whitespace(l)
     end_tag_stack = []
     while ch != ">":
@@ -214,9 +234,9 @@ def lex_comment(l: Lexer) -> t.Callable:
     comment_end = l.pos
     l.pos = l.pos - len(end_tag_stack) 
     comment = l.input[l.start:l.pos]
-    emit_token(l, comment)
+    emit_token(l, Token(TokenType.COMMENT_VALUE, comment))
     l.pos = comment_end
-    emit_token(l, "".join(end_tag_stack)) # -->
+    emit_token(l, Token(TokenType.COMMENT_TAG_END, "".join(end_tag_stack))) # -->
     return lex_xml
 
 
