@@ -182,6 +182,12 @@ def lex_attrib_value(l: Lexer) -> t.Callable:
         next_char(l)
         emit_token(l, Token(TokenType.TAG_OPEN_END, ">"))
         return lex_xml
+    if ch == "/" and len(l.input) > l.pos and l.input[l.pos+1] == ">":
+        next_char(l)
+        next_char(l)
+        emit_token(l, Token(TokenType.TAG_OPEN_END, "/>"))
+        return lex_xml
+        # elif len(l.input) > l.pos and l.input[l.pos + 1] == "!":
     return lex_attrib_name
 
 def lex_attrib_string(l: Lexer) -> t.Callable:
